@@ -33,9 +33,6 @@ OPAL-LIBS/
 │   ├── LwF.py              # Learning without Forgetting
 │   ├── EWC.py              # Elastic Weight Consolidation
 │   └── DER++.py            # Dark Experience Replay
-├── data/                   # 数据集（10 个 CSV 文件，详见下文）
-├── scripts/
-│   └── build_dataset.py    # 将 data/*.csv 合并为 data/all_data.csv
 ├── requirements.txt
 ├── README.md
 ├── LICENSE
@@ -44,18 +41,18 @@ OPAL-LIBS/
 
 ---
 
-## 数据集说明
+## 数据说明
 
-数据集位于 `data/` 目录，共 10 个 CSV 文件：
+**本仓库不提供数据集，仅提供代码。** 如需运行，请自行准备数据并放置为：
 
-| 文件 | 类型 | 说明 |
-| --- | --- | --- |
-| `dataset_101.csv` ~ `dataset_105.csv` | 水果刀 | 每个文件包含每把水果刀的 5 条 LIBS 数据 |
-| `dataset_201.csv` ~ `dataset_205.csv` | 菜刀 | 每个文件包含每把菜刀的 5 条 LIBS 数据 |
+```
+data/all_data.csv
+```
 
-- 每条样本为一段 LIBS 光谱，包含 **7062 维**光谱强度特征，最后一列为**类别标签**；
-- 每个文件的第一行为表头（光谱波长 + `Label`）；
-- 训练前需将 10 个文件合并为 `data/all_data.csv`（见下方「快速开始」）。合并后的文件体积约 133MB，已被 `.gitignore` 忽略，可通过脚本随时重新生成。
+数据格式要求：
+
+- 每条样本为一段 LIBS 光谱，包含 **7062 维**光谱强度特征，最后一列为**类别标签**（整数）；
+- 基类 / 增量类 / 未知类的划分比例由 `src/config.py` 中的 `BASE_RATIO`、`INC_RATIO`、`UNKNOWN_RATIO` 控制。
 
 ---
 
@@ -81,8 +78,7 @@ pip install -r requirements.txt
 ## 快速开始
 
 ```bash
-# 1. 合并数据集 → data/all_data.csv
-python scripts/build_dataset.py
+# 1. 将你的数据放到 data/all_data.csv（见上方「数据说明」）
 
 # 2. 训练 OPAL 模型（基类 + 3 轮增量学习 + 开集识别评估）
 python main.py

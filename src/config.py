@@ -80,7 +80,8 @@ ARCFACE_M = 0.60          # 角度边距 (margin)，越大类间间隔越宽
 # ═══════════════════════════════════════════════════════════════
 # 路径
 # ═══════════════════════════════════════════════════════════════
-# 数据路径：指向 data/all_data.csv（由 scripts/build_dataset.py 合并生成）。
+# 数据路径：指向 data/all_data.csv（本仓库不提供数据，请自行放置）。
+# 数据格式：前 7062 列为光谱强度，最后一列为类别标签。
 # 使用绝对路径，确保从任意工作目录运行均可正确定位数据文件。
 _PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_PATH = os.path.join(_PROJECT_ROOT, "data", "all_data.csv")

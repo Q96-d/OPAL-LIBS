@@ -31,5 +31,5 @@ results/
 .DS_Store
 Thumbs.db
 
-# ── 合并后的完整数据集（由 scripts/build_dataset.py 生成，体积约 133MB）──
-data/all_data.csv
+# ── 数据集（本仓库不提供数据；本地运行如需放置数据，请勿提交）──
+data/
