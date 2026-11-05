@@ -1,0 +1,35 @@
+# ── Python ──────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+venv/
+env/
+build/
+dist/
+*.egg-info/
+
+# ── 模型权重与大体积二进制（不纳入版本控制）──────────────
+models/
+*.h5
+*.keras
+*.weights.h5
+*.npz
+*.pkl
+
+# ── 运行输出与日志 ──────────────────────────────────────
+results/
+*.log
+
+# ── Jupyter ─────────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ── IDE / 操作系统 ──────────────────────────────────────
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ── 合并后的完整数据集（由 scripts/build_dataset.py 生成，体积约 133MB）──
+data/all_data.csv
